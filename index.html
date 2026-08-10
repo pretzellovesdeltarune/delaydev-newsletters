@@ -20,6 +20,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
     
         .container {
@@ -28,6 +29,7 @@
             text-align: left;
             padding-left: 2px;
             box-sizing: border-box;
+            position: relative;
         }
     
         .logo {
@@ -41,7 +43,10 @@
             width: 800px;
             height: 480px;
             display: block;
-            margin: 20px auto;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 20px 0;
         }
     </style>
 </head>
