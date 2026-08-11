@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>" "</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000000;
+    }
+
+    .click-image {
+      max-width: 80%;
+      max-height: 80vh;
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="click-sound" src="assets/plink.wav" preload="auto"></audio>
+  <img src="assets/weird route ralsei head.png" alt="ralsei" class="click-image" id="sound-trigger">
+
+  <script>
+    const image = document.getElementById('sound-trigger');
+    const sound = document.getElementById('click-sound');
+
+    image.addEventListener('click', () => {
+      sound.currentTime = 0;
+      sound.play();
+    });
+  </script>
+
+</body>
+</html>
