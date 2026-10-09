@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Newsletters</title>
+    <style>
+        @font-face {
+            font-family: 'mainfont';
+            src: url('assets/8bitOperatorPlus-Regular.ttf') format('truetype');
+        }
+
+        html, body {
+            min-height: 100%;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'mainfont', sans-serif;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .logo {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 60px auto;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            image-rendering: -moz-crisp-edges;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .entry {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .entry-title {
+            display: block;
+            color: #ff9900;
+            font-size: 20px;
+        }
+
+        .entry-desc {
+            display: block;
+            color: white;
+            font-size: 16px;
+            margin-top: 6px;
+        }
+
+        .entry:hover .entry-title {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/newsletter selection logo.png" alt="Newsletters" class="logo">
+
+    <div class="list" id="list"></div>
+
+    <script>
+        const newsletters = [
+            {
+                title: "October Newsletter",
+                desc: "It's Autumn!!",
+                url: "october.html",
+                date: "2026-10-09"
+            },
+            {
+                title: "August Newsletter",
+                desc: "... The hell is a newsletter.",
+                url: "august.html",
+                date: "2026-08-11"
+            }
+        ];
+
+        const list = document.getElementById("list");
+
+        newsletters
+            .slice()
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .forEach(n => {
+                const a = document.createElement("a");
+                a.className = "entry";
+                a.href = n.url;
+
+                const t = document.createElement("span");
+                t.className = "entry-title";
+                t.textContent = n.title;
+
+                const d = document.createElement("span");
+                d.className = "entry-desc";
+                d.textContent = n.desc;
+
+                a.appendChild(t);
+                a.appendChild(d);
+                list.appendChild(a);
+            });
+    </script>
+
+    <div class="footer">pretzel_xdxd</div>
+</body>
+</html>
